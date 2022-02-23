@@ -19,7 +19,7 @@ def breach_check(check,v,a,b):
 
 def infer_breach(value, lowerLimit, upperLimit):
     breach_data_dict = ({k : breach_check(k, value,lowerLimit,upperLimit) for k in breach_values})
-    return [k for k, v in dict_data.items() if v][0]
+    return [k for k, v in breach_data_dict.items() if v][0]
 
 def define_temperature_breach_limits(coolingType):
     return (coolingTypes.get(coolingType, [0,0]))
