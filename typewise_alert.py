@@ -14,7 +14,7 @@ def breach_check(check,v,a,b):
     return{
     "TOO_LOW" : lambda: v<a,
     "TOO_HIGH" : lambda: v>b,
-    "NORMAL" : lambda : v>a and v<b,
+    "NORMAL" : lambda : v>=a and v<=b,
     }.get(check, lambda:True)()
 
 def infer_breach(value, lowerLimit, upperLimit):
