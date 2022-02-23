@@ -9,17 +9,12 @@ email_content = {
     'TOO_HIGH' : 'Hi, the temperature is too high',
     }
 
-breach_values = ["TOO_LOW" , "TOO_HIGH" , "NORMAL"]
-def breach_check(check,v,a,b):
-    return{
-    "TOO_LOW" : lambda: v<a,
-    "TOO_HIGH" : lambda: v>b,
-    "NORMAL" : lambda : v>=a and v<=b,
-    }.get(check, lambda:True)()
-
 def infer_breach(value, lowerLimit, upperLimit):
-    breach_data_dict = ({k : breach_check(k, value,lowerLimit,upperLimit) for k in breach_values})
-    return [k for k, v in breach_data_dict.items() if v][0]
+  if value < lowerLimit:
+    return 'TOO_LOW'
+  if value > upperLimit:
+    return 'TOO_HIGH'
+  return 'NORMAL'
 
 def define_temperature_breach_limits(coolingType):
     return (coolingTypes.get(coolingType, [0,0]))
