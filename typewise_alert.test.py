@@ -28,5 +28,4 @@ class TypewiseTest(unittest.TestCase):
       self.assertTrue(typewise_alert.check_and_alert('TO_EMAIL', batteryChar, random.randrange(lower_limit, upper_limit)))
       self.assertTrue(typewise_alert.check_and_alert('TO_Somewhere', batteryChar, random.randrange(lower_limit, upper_limit)) == 'Not Valid')
       
-if __name__ == '__main__':
-  unittest.main()
+unittest.main()
